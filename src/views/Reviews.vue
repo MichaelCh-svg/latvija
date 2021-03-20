@@ -15,6 +15,9 @@
             <hr>
             <p>{{comment.text}}</p>
             <p><i>-- {{comment.author}}</i></p>
+            <form v-on:submit.prevent="del(comment)">
+            <button type="submit"> delete</button>
+            </form>
           </div>
         </div>
 
@@ -39,7 +42,7 @@ export default {
     return {
       searchText: "",
       comments: [],
-      number: 1,
+      number: 0,
       addedName: '',
       addedComment: '',
       
@@ -65,6 +68,11 @@ export default {
         });
         this.number += 1;
       },
+      del(comment) {
+        // let object = this.comments.reduce(erase=>erase.number=comment.number);
+        let index = this.comments.indexOf(comment);
+        this.comments.splice(index, 1);
+      }
     
   }
 }

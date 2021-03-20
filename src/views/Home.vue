@@ -34,7 +34,7 @@ export default {
 .content{
   background-color:darkgoldenrod;
   margin: 0 auto;
-  padding:15px;
+  padding:10px;
   align-self:center;
 }
 .lat{
@@ -43,7 +43,7 @@ export default {
 
 }
 img{
-  width: 90%;
+  width: 85%;
   max-width: 360px;
   /* padding: 25px; */
   /* border-style:solid; */

@@ -48,9 +48,7 @@ img{
   /* padding: 25px; */
   /* border-style:solid; */
 }
-.lat{
-  width:100%;
-}
+
 h1{
   text-decoration:underline;
 }

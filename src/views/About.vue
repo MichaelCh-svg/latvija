@@ -20,7 +20,7 @@
   margin: 20px;
 }
 .lat{
-  width:100%;
+  width:90%;
   margin: 0 auto;
 }
 /* .about, content{
@@ -46,7 +46,6 @@ h1{
   
 }
 img{
-  width: 90%;
   max-width: 360px;
   border-style:solid;
 }

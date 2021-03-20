@@ -39,13 +39,14 @@ export default {
 }
 .lat{
   
-  margin: auto;
+  margin: 0px auto;
 
 }
 img{
   width: 90%;
   max-width: 360px;
-  padding: 25px;
+  /* padding: 25px; */
+  /* border-style:solid; */
 }
 .lat{
   width:100%;

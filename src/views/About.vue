@@ -21,6 +21,7 @@
 }
 .lat{
   width:100%;
+  margin: 0 auto;
 }
 /* .about, content{
   border-style:solid;
@@ -39,7 +40,7 @@ h1{
   /* justify-content:center; */
   align-content: center;
   align-items: center;
-  width: 90%;
+  /* width: 90%; */
   margin: 0 auto;
   padding: 15px;
   
@@ -47,6 +48,7 @@ h1{
 img{
   width: 90%;
   max-width: 360px;
+  border-style:solid;
 }
 
 @media only screen and (min-width: 700px) {

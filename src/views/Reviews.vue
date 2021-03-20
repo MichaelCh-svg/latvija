@@ -11,39 +11,21 @@
             <button type="submit">Comment</button>
           </form>
           <h3>Comments</h3>
-          <div v-for="comment in comments" :key="comment.number">
+          <div v-for="comment in this.comments" :key="comment.number">
             <hr>
             <p>{{comment.text}}</p>
             <p><i>-- {{comment.author}}</i></p>
           </div>
-          <ul class='reviews'>
-            <li>I've lived in Liepaja for 30 years, and I haven't even seen these places!
-            <br/>-Roxanne
-            </li>
-            <!-- <li>I've lived in Liepaja for 3 years, and I've seen these places!
-            <br/>-George
-            </li> -->
-            <li>I'm failing several classes.
-            <br/>-Cloyde
-            </li>
-            <li>Great scenery! When my stimulus check comes in, I'll take a visit.
-            <br/>-Sophrania
-            </li>
-
-          </ul>
         </div>
 
       </div>
-      <div class='sum'>
-        Capture your experiences before it's too late.
-
-      </div>
-      <div class='footer'>
+      
+      <!-- <div class='footer'>
         <div class='footer-item'>
-          code:
+          code: 
           <a href="https://github.com/BYU-CS-260-Winter-2021/lab-1-photography-website-MichaelCh-svg.git"> git repository</a>
         </div>
-      </div>
+      </div> -->
     </div>
 </template>
 
@@ -56,11 +38,7 @@ export default {
   data() {
     return {
       searchText: "",
-      comments: {
-        number: 0,
-        author: 'George',
-        text: 'I\'ve lived in Liepaja for 3 years, and I\'ve seen these places!',
-      },
+      comments: [],
       number: 1,
       addedName: '',
       addedComment: '',
@@ -76,7 +54,9 @@ export default {
         // this.addedTime = c;
         // if (!(this.number in this.comments))
         //   Vue.set(app.comments, this.number, new Array);
-        
+        // this.addedName = addedName;
+        // this.addedComment = addedComment;
+        console.log("comment, method called");
         this.comments.push({
           author: this.addedName,
           text: this.addedComment,
@@ -89,3 +69,32 @@ export default {
   }
 }
 </script>
+
+<style scoped>
+.content{
+  background-color:darkgoldenrod;
+  padding: 30px;
+}
+img{
+  width: 100%;
+  width:350px;
+}
+h1{
+  text-decoration-line:underline;
+}
+textarea {
+    width: 100%;
+    max-width: 500px;
+    height: 100px;
+}
+form{
+  margin-top: 20px;
+  display:flex;
+  flex-wrap: wrap;
+  flex-direction:column;
+  align-items: center;
+}
+button, input {
+  width: 160px;
+}
+</style>

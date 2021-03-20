@@ -11,6 +11,7 @@ let data = {
   index: "",
   quantity: [],
   numItems: 0,
+  comments: [],
 };
 
 new Vue({

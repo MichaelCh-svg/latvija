@@ -1,13 +1,14 @@
 <template>
   <div>
-    <div class="wrapper">
+    <!-- <div class="wrapper">
       <div class="search">
         <form class="pure-form">
           <i class="fas fa-search"></i><input v-model="searchText" />
         </form>
       </div>
-    </div>
-    <PortfolioList :products="products" />
+    </div> -->
+    <h1>Portfolio</h1>
+    <div class = 'portfolio'><PortfolioList :products="products" /></div>
   </div>
 </template>
 
@@ -35,6 +36,12 @@ export default {
 </script>
 
 <style scoped>
+h1{
+  text-decoration-line:underline;
+}
+.portfolio{
+  background-color:steelblue;
+}
 .wrapper {
   display: flex;
   align-items: center;

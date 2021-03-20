@@ -1,15 +1,22 @@
 <template>
 <div>
-  <div class="info">
-    <p>Congratulations, you have ordered {{random}} cases of {{product.name}}!</p>
-
-    <p>This product is sourced from {{product.country}} at {{product.price}} per item,
-      for a total of ${{amount}}. Your credit card has been billed and you will receive
-      delivery within 3-30 weeks. Please contact us if it doesn't arrive within 1 year.</p>
-  </div>
   <div class="image">
     <img :src="'/images/'+product.image">
   </div>
+  <div class = 'comments'>
+          <form v-on:submit.prevent="addComment()">
+            <input v-model="addedName" placeholder="Name">
+            <textarea v-model="addedComment"></textarea>
+            <br />
+            <button type="submit">Comment</button>
+          </form>
+          <h3>Comments</h3>
+          <div v-for="comment in this.comments" :key="comment.number">
+            <hr>
+            <p>{{comment.text}}</p>
+            <p><i>-- {{comment.author}}</i></p>
+          </div>
+        </div>
 </div>
 </template>
 
@@ -21,19 +28,39 @@ export default {
       random: 0,
       amount: 0,
       product: {},
+      comments: [],
+      number: 1,
+      addedName: '',
+      addedComment: '',
     }
   },
   created() {
     this.product = this.$root.$data.products.find(product => product.id === parseInt(this.$route.params.id));
     this.random =
       Math.floor(Math.random() * 90) + 10;
-    this.amount = this.random * parseFloat(this.product.price.replace(/\$|,/g, ''));
+    // this.amount = this.random * parseFloat(this.product.price.replace(/\$|,/g, ''));
     this.amount = this.amount.toFixed(2);
   },
+  methods: {
+    addComment() {
+        console.log("comment, method called");
+        this.comments.push({
+          author: this.addedName,
+          text: this.addedComment,
+          number: this.number,
+        });
+        this.number += 1;
+      },
+    
+  }
 }
 </script>
 
 <style scoped>
+.comments{
+  background-color:darkgoldenrod;
+  padding-top: 20px;
+}
 .intro {
   font-style: italic;
 }
@@ -47,5 +74,20 @@ export default {
   width: 40px;
   margin-left: 10px;
   object-fit: cover;
+}
+textarea {
+    width: 100%;
+    max-width: 500px;
+    height: 100px;
+}
+form{
+  margin-top: 20px;
+  display:flex;
+  flex-wrap: wrap;
+  flex-direction:column;
+  align-items: center;
+}
+button, input {
+  width: 160px;
 }
 </style>

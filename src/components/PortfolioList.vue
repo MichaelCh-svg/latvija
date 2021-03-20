@@ -1,14 +1,9 @@
 <template>
   <div class="wrapper">
     <div class="products">
-      <!-- <router-link v-for="product in products" :key="product.id" :to="'/product/' + product.id"> -->
-      
-    
         <div class="product" v-for="product in products" :key="product.id">
-        <!-- <div class="product"> -->
           <div class="info">
             <h1>{{ product.name }}</h1>
-            <p>{{ product.country }}</p>
           </div>
           <router-link :key="product.id" :to="'/product/' + product.id">
             <div class="image">
@@ -16,11 +11,12 @@
             </div>
           </router-link>
           <div class="price">
-            <h2>{{ product.price }}</h2>
+            <router-link :key="product.id" :to="'/product/' + product.id">
+            <h2>comment</h2>
+            </router-link>
             <button class="auto" @click="cart(product)">{{product.quantity}} Thumbs up</button>
           </div>
         </div>
-      <!-- </router-link> -->
     </div>
   </div>
 </template>
@@ -76,16 +72,16 @@ export default {
   margin-bottom: 5px;
 }
 .info {
-  background: #f2921d;
+  /* background: #000000; */
   color: #000;
   padding: 10px 30px;
-  height: 80px;
+  height: 40px;
 }
 .info h1 {
   font-size: 16px;
 }
-.info h2 {
-  font-size: 14px;
+.price h2 {
+  font-size: 18px;
 }
 .info p {
   margin: 0px;

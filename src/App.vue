@@ -8,7 +8,7 @@
     </div>
     <router-view/>
     <div class='footer'>
-      <a class = 'footer-item' href='https://github.com/BYU-CS-260-Winter-2021/lab-3b-grocery-store-MichaelCh-svg.git'> Git Code</a>
+      <a class = 'footer-item' href='https://github.com/MichaelCh-svg/latvija.git'> Git Code</a>
     </div>
   </div>
 </template>
@@ -24,13 +24,17 @@
 .footer{
     display:flex;
     justify-content: center;
-    height: 300px;
+    height: 100px;
+    background-color:olive;
 }
 .footer-item{
     align-self:center;
 }
 #nav {
   padding: 30px;
+  border-style:solid;
+  border-width: 3px;
+  background-color:olive;
 }
 
 #nav a {

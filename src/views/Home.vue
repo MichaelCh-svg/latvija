@@ -44,7 +44,7 @@ export default {
 }
 img{
   width: 85%;
-  max-width: 360px;
+  max-width: 300px;
   /* padding: 25px; */
   /* border-style:solid; */
 }
@@ -59,7 +59,7 @@ h1{
     flex-direction:row;
   }
   img, .lat{
-  width: 300px;
+  width: 360px;
   height: 0%;
 }
 }

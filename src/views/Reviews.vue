@@ -11,7 +11,7 @@
             <button type="submit">Comment</button>
           </form>
           <h3>Comments</h3>
-          <div v-for="comment in this.comments" :key="comment.number">
+          <div v-for="comment in this.$root.$data.comments" :key="comment.number">
             <hr>
             <p>{{comment.text}}</p>
             <p><i>-- {{comment.author}}</i></p>
@@ -23,8 +23,8 @@
             </form>
             <div v-if='comment.editing===true'>
               <form v-on:submit.prevent="edit(comment)">
-            <input v-model="editedName" placeholder="Name">
-            <textarea v-model="editedComment"></textarea>
+            <input v-model="comment.author">
+            <textarea v-model="comment.text"></textarea>
             <br />
             <button type="submit">Finish edit</button>
           </form>
@@ -33,13 +33,6 @@
         </div>
 
       </div>
-      
-      <!-- <div class='footer'>
-        <div class='footer-item'>
-          code: 
-          <a href="https://github.com/BYU-CS-260-Winter-2021/lab-1-photography-website-MichaelCh-svg.git"> git repository</a>
-        </div>
-      </div> -->
     </div>
 </template>
 
@@ -74,7 +67,7 @@ export default {
         // this.addedName = addedName;
         // this.addedComment = addedComment;
         console.log("comment, method called");
-        this.comments.push({
+        this.$root.$data.comments.push({
           author: this.addedName,
           text: this.addedComment,
           number: this.number,
@@ -87,17 +80,13 @@ export default {
       },
       del(comment) {
         // let object = this.comments.reduce(erase=>erase.number=comment.number);
-        let index = this.comments.indexOf(comment);
-        this.comments.splice(index, 1);
+        let index = this.$root.$data.comments.indexOf(comment);
+        this.$root.$data.comments.splice(index, 1);
       },
       settrue(comment){
         comment.editing = true;
       },
       edit(comment){
-        let index = this.comments.indexOf(comment);
-        // this.comments.index.text = comment.addedComment;
-        this.comments[index].text = this.editedComment;
-        this.comments[index].author = this.editedName;
         comment.editing=false;
         this.editedComment = '';
       }

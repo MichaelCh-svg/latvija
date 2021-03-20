@@ -15,9 +15,20 @@
             <hr>
             <p>{{comment.text}}</p>
             <p><i>-- {{comment.author}}</i></p>
+            <form v-on:submit.prevent="settrue(comment)">
+            <button type="submit"> edit</button>
+            </form>
             <form v-on:submit.prevent="del(comment)">
             <button type="submit"> delete</button>
             </form>
+            <div v-if='comment.editing===true'>
+              <form v-on:submit.prevent="edit(comment)">
+            <input v-model="editedName" placeholder="Name">
+            <textarea v-model="editedComment"></textarea>
+            <br />
+            <button type="submit">Finish edit</button>
+          </form>
+            </div>
           </div>
         </div>
 
@@ -45,6 +56,9 @@ export default {
       number: 0,
       addedName: '',
       addedComment: '',
+      // editing: 'false',
+      editedComment: '',
+      editedName: '',
       
     };
   },
@@ -64,14 +78,28 @@ export default {
           author: this.addedName,
           text: this.addedComment,
           number: this.number,
+          editing: 'false',
           // time: this.addedTime,
         });
         this.number += 1;
+        this.addedComment = '';
+        this.addedName = '';
       },
       del(comment) {
         // let object = this.comments.reduce(erase=>erase.number=comment.number);
         let index = this.comments.indexOf(comment);
         this.comments.splice(index, 1);
+      },
+      settrue(comment){
+        comment.editing = true;
+      },
+      edit(comment){
+        let index = this.comments.indexOf(comment);
+        // this.comments.index.text = comment.addedComment;
+        this.comments[index].text = this.editedComment;
+        this.comments[index].author = this.editedName;
+        comment.editing=false;
+        this.editedComment = '';
       }
     
   }
